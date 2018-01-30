@@ -26,19 +26,19 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">SAMPATHS-01-L</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtesYKn5hlUCwV7+QQdooDQAAAAACAAAAAAADZgAAwAAAABAAAAD4dmi6BigcrwR4ipC8ijTzAAAAAASAAACgAAAAEAAAAGZSfkhc2Fv4kXXzvbAdhjaIAAAAZaEv9E5cVReWEAGcQfiHfe2ZZcqYbzkMko/xAHTbQu8r617eXNlkN51SDZapgk6751eV1zh5aPhU0osnlcXZaITBhC+JOVbb0Cbw63O7iVDSc1ygH30J/0pndC6qZ6KuJ9gMkaGRq9sFfWac4vaWwKg4C0ZRwHRTBJxaUxPHeCEKenrTBDakXxQAAACcl/j/GHe23bNuQw97Klz9Oys41w==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtesYKn5hlUCwV7+QQdooDQAAAAACAAAAAAADZgAAwAAAABAAAAC2+9yL760pyCtjlJBCN+nJAAAAAASAAACgAAAAEAAAAAvWz/t1hn2AHmdSY6CsOdWIAAAAKNkXMBbib6VjAkc37nblW6+x46vyyj2ygXEmvF7MOG3MtdQwu0SThbbyqXZJScVssn9TwEGjTj3ZPvXNTRcaFfi0daNhM3gKutosWRYctpw+OooY6lJaJCcpojPG88Bfy7xnYZ6Y5yXuYB4Y66UvtuN+Re+hIyYXISIQ/69gHWs0BZ4500TathQAAADRAlGeaysKb1oeQ3YlYlEwk/kWAA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Package.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Reporting.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
-          <SSIS:ConnectionManager SSIS:Name="SAMPATHS-01-L.AdventureWorks2016CTP3.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="SAMPATHS-01-L.ReportingDB.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="AdventureWorks2016CTP3.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="ReportingDB_M.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -53,7 +53,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -68,7 +68,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.Password">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -82,7 +82,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -97,7 +97,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -112,7 +112,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.AdventureWorks2016CTP3.UserName">
+            <SSIS:Parameter SSIS:Name="CM.AdventureWorks2016CTP3.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -126,7 +126,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -137,11 +137,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=SAMPATHS-01-L;Initial Catalog=ReportingDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=SAMPATHS-01-L;Initial Catalog=ReportingDB_M;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -152,11 +152,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">ReportingDB</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">ReportingDB_M</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.Password">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -170,7 +170,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -185,7 +185,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -200,7 +200,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.SAMPATHS-01-L.ReportingDB.UserName">
+            <SSIS:Parameter SSIS:Name="CM.ReportingDB_M.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -216,16 +216,16 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="Package.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Reporting.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3740C846-4718-4C2F-B912-2E7BDC711488}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{FB808FDF-60A9-4A43-907A-DFABB17926A8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Reporting</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">13</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{008D6088-A9E1-405A-9EBD-C9335A61D683}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EAC68FCA-172F-4517-8592-0E09F7E9C1A4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
