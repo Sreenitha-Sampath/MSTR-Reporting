@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="277ad0a1-7ba2-46fc-b41e-87a9a8341cc3" ChangeDateTime="01/30/2018 09:03:52">
+    <Property Name="ElementName" Value="[dbo].[Location]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DimLocation]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f25c909c-3fa6-4727-98c3-c44a8846f0d5" ChangeDateTime="01/30/2018 11:20:17">
+    <Property Name="ElementName" Value="[dbo].[Purchase]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DimPurchase]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="15ec7e1a-ef48-4d1f-8a45-2deab0969be3" ChangeDateTime="01/30/2018 11:20:44">
+    <Property Name="ElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[DimVendor]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="71dd2f77-4de0-4ecb-b12c-f2274a88563d" ChangeDateTime="01/30/2018 11:21:45">
+    <Property Name="ElementName" Value="[dbo].[DimPurchase]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[FactPurchase]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d261808c-3e82-4c47-b660-71f0874ae3c4" ChangeDateTime="01/30/2018 11:21:53">
+    <Property Name="ElementName" Value="[dbo].[FactPurchase].[LocationID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FactPurchase]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="88d07e0d-e4f1-4608-80a3-f5e2351420d7" ChangeDateTime="01/30/2018 11:21:59">
+    <Property Name="ElementName" Value="[dbo].[FactPurchase].[VendorID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FactPurchase]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VendorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="165b73e2-84b0-48d9-90f5-b24f0a9e125a" ChangeDateTime="01/30/2018 11:22:54">
+    <Property Name="ElementName" Value="[dbo].[FactPurchase].[Amount]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FactPurchase]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PurchaseAmount" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="99b6a069-ab2c-423d-8803-43c1a6e64032" ChangeDateTime="01/30/2018 11:23:04">
+    <Property Name="ElementName" Value="[dbo].[DimLocation].[LocationID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimLocation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2ed49573-2a08-46ad-b865-108d3fccdd5c" ChangeDateTime="01/30/2018 11:23:17">
+    <Property Name="ElementName" Value="[dbo].[DimLocation].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimLocation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6a7fe807-d420-4f22-86e0-c510c90caa7e" ChangeDateTime="01/30/2018 11:23:38">
+    <Property Name="ElementName" Value="[dbo].[DimVendor].[VendorID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimVendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VendorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4ed17db3-32ae-4729-b53e-a10d3104115f" ChangeDateTime="01/30/2018 11:25:41">
+    <Property Name="ElementName" Value="[dbo].[DimVendor].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimVendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VendorName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a46c4a51-f66a-43a0-9d5e-16052b61b738" ChangeDateTime="01/30/2018 12:02:31">
+    <Property Name="ElementName" Value="[dbo].[DimVendor].[VendorId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimVendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="VendorID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="39ba8ad3-d792-467f-9267-3f0a691f0d7e" ChangeDateTime="01/30/2018 12:02:51">
+    <Property Name="ElementName" Value="[dbo].[DimVendor].[VendorID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimVendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[VendorId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="83670515-26cb-4acc-a2d9-b037bfd94e7e" ChangeDateTime="01/30/2018 12:03:10">
+    <Property Name="ElementName" Value="[dbo].[DimLocation].[LocationId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimLocation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2cbab114-b35f-4d2d-8604-455cf2e77c42" ChangeDateTime="01/30/2018 12:03:23">
+    <Property Name="ElementName" Value="[dbo].[DimLocation].[LocationID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DimLocation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[LocationId]" />
+  </Operation>
+</Operations>

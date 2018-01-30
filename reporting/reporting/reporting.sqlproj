@@ -59,8 +59,11 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Vendor.sql" />
-    <Build Include="Location.sql" />
-    <Build Include="Purchase.sql" />
+    <Build Include="DimVendor.sql" />
+    <Build Include="DimLocation.sql" />
+    <Build Include="FactPurchase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="reporting.refactorlog" />
   </ItemGroup>
 </Project>
