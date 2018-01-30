@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Reporting_SSIS", "Reporting_SSIS\Reporting_SSIS.dtproj", "{AFCA8844-CF08-4493-9C8A-835D2FF995C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFCA8844-CF08-4493-9C8A-835D2FF995C0}.Development|Default.ActiveCfg = Development
+		{AFCA8844-CF08-4493-9C8A-835D2FF995C0}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78559EC0-4260-42E3-9485-B61E82E666C8}
+	EndGlobalSection
+EndGlobal
