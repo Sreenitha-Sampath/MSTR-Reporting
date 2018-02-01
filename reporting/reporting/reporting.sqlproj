@@ -62,7 +62,6 @@
   <ItemGroup>
     <Build Include="Tables\DimLocation.sql" />
     <Build Include="Tables\DimVendor.sql" />
-    <Build Include="Tables\FactPurchase.sql" />
     <Build Include="Tables\FactMonthlyOrders.sql" />
   </ItemGroup>
   <ItemGroup>
