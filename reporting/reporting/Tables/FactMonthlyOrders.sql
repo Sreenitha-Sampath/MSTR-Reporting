@@ -1,12 +1,12 @@
-﻿CREATE TABLE [dbo].[FactMonthlyOrders]
+﻿CREATE TABLE [dbo].[FactMonthlyPurchaseOrders]
 (
 	[LocationId] INT NOT NULL, 
     [VendorId] INT NOT NULL, 
 	[MonthId] INT NOT NULL, 
     [PurchaseAmount] MONEY NOT NULL,
     [OrderCount] INT NOT NULL, 
-	CONSTRAINT PK_FactMonthlyOrders_LocationId_VendorId_Month PRIMARY KEY CLUSTERED ([LocationId],[VendorId],[MonthId]),
-	CONSTRAINT [FK_FactMonthlyOrders_DimLocation_LocationId] FOREIGN KEY ([LocationId]) REFERENCES [DimLocation]([LocationId]),
-	CONSTRAINT [FK_FactMonthlyOrders_DimVendor_VendorId] FOREIGN KEY ([VendorId]) REFERENCES [DimVendor]([VendorId]),
-	CONSTRAINT [FK_FactMonthlyOrders_DimMonth_MonthId] FOREIGN KEY ([MonthId]) REFERENCES [DimMonth]([MonthId])
+	CONSTRAINT PK_FactMonthlyPurchaseOrders_LocationId_VendorId_MonthId PRIMARY KEY CLUSTERED ([LocationId],[VendorId],[MonthId]),
+	CONSTRAINT [FK_FactMonthlyPurchaseOrders_DimLocation_LocationId] FOREIGN KEY ([LocationId]) REFERENCES [DimLocation]([LocationId]),
+	CONSTRAINT [FK_FactMonthlyPurchaseOrders_DimVendor_VendorId] FOREIGN KEY ([VendorId]) REFERENCES [DimVendor]([VendorId]),
+	CONSTRAINT [FK_FactMonthlyPurchaseOrders_DimMonth_MonthId] FOREIGN KEY ([MonthId]) REFERENCES [DimMonth]([MonthId])
 )
