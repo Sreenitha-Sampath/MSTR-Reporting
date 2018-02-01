@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Reporting"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{EAC68FCA-172F-4517-8592-0E09F7E9C1A4}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{04C17FBD-31B2-4D8E-89DF-36DDE7B0A7ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -576,11 +576,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Reporting\Fact Purchase Destination"
+              refId="Package\Reporting\Fact Monthly Orders Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Fact Purchase Destination"
+              name="Fact Monthly Orders Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -591,7 +591,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[FactPurchase]</property>
+                  name="OpenRowset">[dbo].[FactMonthlyOrders]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -633,7 +633,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Reporting\Fact Purchase Destination.Connections[OleDbConnection]"
+                  refId="Package\Reporting\Fact Monthly Orders Destination.Connections[OleDbConnection]"
                   connectionManagerID="{D975BEA8-FF35-4DB6-B172-3C44A2294352}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ReportingDB_M]"
                   description="The OLE DB runtime connection used to access the database."
@@ -641,66 +641,86 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].Columns[PurchaseAmount]"
-                      cachedDataType="cy"
-                      cachedName="PurchaseAmount"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAmount]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[PurchaseAmount]" />
-                    <inputColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].Columns[LocationID]"
                       cachedDataType="i2"
                       cachedName="LocationID"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationId]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationId]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[LocationID]" />
                     <inputColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].Columns[VendorID]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].Columns[VendorID]"
                       cachedDataType="i4"
                       cachedName="VendorID"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorId]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[VendorID]" />
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorId]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[VendorID]" />
+                    <inputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].Columns[OrderCount]"
+                      cachedDataType="i4"
+                      cachedName="OrderCount"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderCount]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[OrderCount]" />
+                    <inputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="cy"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAmount]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Amount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAmount]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseAmount]"
                       dataType="cy"
                       name="PurchaseAmount" />
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationId]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationId]"
                       dataType="i4"
                       name="LocationId" />
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorId]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[VendorId]"
                       dataType="i4"
                       name="VendorId" />
+                    <externalMetadataColumn
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderCount]"
+                      dataType="i4"
+                      name="OrderCount" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Reporting\Fact Purchase Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Reporting\Fact Monthly Orders Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Reporting\Fact Purchase Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Reporting\Fact Monthly Orders Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Reporting\Fact Purchase Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -709,11 +729,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Reporting\Fact Purchase Source"
+              refId="Package\Reporting\Fact Monthly Orders Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Fact Purchase Source"
+              name="Fact Monthly Orders Source"
               usesDispositions="true"
               version="7">
               <properties>
@@ -734,16 +754,19 @@
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
-  POH.VendorID,
   PI.LocationID,
-  SUM(POD.OrderQty * POD.UnitPrice) AS PurchaseAmount
-FROM Purchasing.PurchaseOrderHeader POH
-INNER JOIN Purchasing.PurchaseOrderDetail POD
-  ON POD.PurchaseOrderID = POH.PurchaseOrderID
+  POH.VendorID,
+  MONTH(POH.OrderDate) AS Month,
+  SUM(POD.UnitPrice * POD.OrderQty) AS Amount,
+  COUNT(POD.PurchaseOrderDetailID) AS OrderCount
+FROM Purchasing.PurchaseOrderDetail POD
+INNER JOIN Purchasing.PurchaseOrderHeader POH
+  ON POH.PurchaseOrderID = POD.PurchaseOrderID
 INNER JOIN Production.ProductInventory PI
   ON PI.ProductID = POD.ProductID
-GROUP BY POH.VendorID,
-         PI.LocationID</property>
+GROUP BY PI.LocationID,
+         POH.VendorID,
+         MONTH(POH.OrderDate)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -768,7 +791,7 @@ GROUP BY POH.VendorID,
               </properties>
               <connections>
                 <connection
-                  refId="Package\Reporting\Fact Purchase Source.Connections[OleDbConnection]"
+                  refId="Package\Reporting\Fact Monthly Orders Source.Connections[OleDbConnection]"
                   connectionManagerID="{65FD546B-5455-42C0-813A-B3618EF489CE}:external"
                   connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2016CTP3]"
                   description="The OLE DB runtime connection used to access the database."
@@ -776,83 +799,119 @@ GROUP BY POH.VendorID,
               </connections>
               <outputs>
                 <output
-                  refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output]"
+                  refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[LocationID]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[LocationID]"
                       name="LocationID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[VendorID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[VendorID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[VendorID]"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[VendorID]"
                       name="VendorID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[PurchaseAmount]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Amount]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseAmount]"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].Columns[PurchaseAmount]"
-                      name="PurchaseAmount"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[OrderCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[OrderCount]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].Columns[OrderCount]"
+                      name="OrderCount"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
                       dataType="i2"
                       name="LocationID" />
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[VendorID]"
                       dataType="i4"
                       name="VendorID" />
                     <externalMetadataColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseAmount]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
                       dataType="cy"
-                      name="PurchaseAmount" />
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output].ExternalColumns[OrderCount]"
+                      dataType="i4"
+                      name="OrderCount" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
                       dataType="i2"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
                       name="LocationID" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
                       dataType="i4"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[VendorID]"
                       name="VendorID" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[PurchaseAmount]"
-                      dataType="cy"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[PurchaseAmount]"
-                      name="PurchaseAmount" />
-                    <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[Month]"
                       dataType="i4"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      name="Month" />
+                    <outputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="cy"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[OrderCount]"
+                      dataType="i4"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[OrderCount]"
+                      name="OrderCount" />
+                    <outputColumn
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -874,9 +933,9 @@ GROUP BY POH.VendorID,
               startId="Package\Reporting\Dim Location Source.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Reporting.Paths[OLE DB Source Output2]"
-              endId="Package\Reporting\Fact Purchase Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Reporting\Fact Monthly Orders Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Reporting\Fact Purchase Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Reporting\Fact Monthly Orders Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -907,55 +966,43 @@ GROUP BY POH.VendorID,
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\Reporting\Fact Purchase Source"
-          TopLeft="519.999979337057,97.7600007769267" />
+          Size="208,41.6"
+          Id="Package\Reporting\Fact Monthly Orders Source"
+          TopLeft="555.999977906545,43.6800003471375" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Reporting\Dim Vendor Destination"
-          TopLeft="248.666656785542,245.440001950582" />
+          TopLeft="293.999988317491,306.453335768806" />
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\Reporting\Dim Vendor Source"
-          TopLeft="251.333323346244,86.6666673554315" />
-        <NodeLayout
-          Size="200,41.6"
-          Id="Package\Reporting\Fact Purchase Destination"
-          TopLeft="525.999979098639,243.360001934052" />
+          Size="227.2,41.6"
+          Id="Package\Reporting\Fact Monthly Orders Destination"
+          TopLeft="545.333311663735,302.293335735745" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Reporting\Dim Location Source"
-          TopLeft="16.6666660043929,67.2533338678148" />
+          TopLeft="57.9999976952872,43.6800003471375" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="193.6,55.2"
           Id="Package\Reporting\Dim Location Destination"
-          TopLeft="24.6666656865014,254.453335355547" />
+          TopLeft="53.3333312140571,279.413335553911" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Reporting\Dim Vendor Source"
+          TopLeft="295.999988238017,38.1333336363899" />
         <EdgeLayout
           Id="Package\Reporting.Paths[OLE DB Source Output2]"
-          TopLeft="610.399979337057,139.360000776927">
+          TopLeft="659.46664478514,85.2800003471375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.599999761582,104.000001157125"
+              EndConnector="0,217.013335388608"
               Start="0,0"
-              End="15.599999761582,96.5000011571253">
+              End="0,209.513335388608">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.0000005785626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,48.0000005785626"
-                    Point2="0,52.0000005785626"
-                    Point3="4,52.0000005785626" />
-                  <mssgle:LineSegment
-                    End="11.599999761582,52.0000005785626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.599999761582,52.0000005785626"
-                    Point2="15.599999761582,52.0000005785626"
-                    Point3="15.599999761582,56.0000005785626" />
-                  <mssgle:LineSegment
-                    End="15.599999761582,96.5000011571253" />
+                    End="0,209.513335388608" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -966,30 +1013,18 @@ GROUP BY POH.VendorID,
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Reporting.Paths[OLE DB Source Output1]"
-          TopLeft="103.866666004393,108.853333867815">
+          TopLeft="147.666664454672,85.2800003471374">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="17.5999996821085,145.600001487732"
+              EndConnector="0,194.133335206774"
               Start="0,0"
-              End="17.5999996821085,138.100001487732">
+              End="0,186.633335206774">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,68.8000007438661" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,68.8000007438661"
-                    Point2="0,72.8000007438661"
-                    Point3="4,72.8000007438661" />
-                  <mssgle:LineSegment
-                    End="13.5999996821085,72.8000007438661" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5999996821085,72.8000007438661"
-                    Point2="17.5999996821085,72.8000007438661"
-                    Point3="17.5999996821085,76.8000007438661" />
-                  <mssgle:LineSegment
-                    End="17.5999996821085,138.100001487732" />
+                    End="0,186.633335206774" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1000,18 +1035,18 @@ GROUP BY POH.VendorID,
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Reporting.Paths[OLE DB Source Output]"
-          TopLeft="339.199990065893,128.266667355432">
+          TopLeft="384.199988277754,79.7333336363899">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,117.17333459515"
+              EndConnector="0,226.720002132416"
               Start="0,0"
-              End="0,109.67333459515">
+              End="0,219.220002132416">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,109.67333459515" />
+                    End="0,219.220002132416" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1024,7 +1059,7 @@ GROUP BY POH.VendorID,
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Reporting\Fact Purchase Source">
+    design-time-name="Package\Reporting\Fact Monthly Orders Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1045,20 +1080,7 @@ GROUP BY POH.VendorID,
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Reporting\Dim Vendor Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Reporting\Fact Purchase Destination">
+    design-time-name="Package\Reporting\Fact Monthly Orders Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1085,6 +1107,19 @@ GROUP BY POH.VendorID,
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Reporting\Dim Location Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Reporting\Dim Vendor Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
