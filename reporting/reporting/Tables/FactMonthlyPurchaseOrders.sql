@@ -2,7 +2,7 @@
 (
 	[LocationId] INT NOT NULL, 
     [VendorId] INT NOT NULL, 
-	[MonthId] INT NOT NULL, 
+	[MonthId] INT NOT NULL,
     [PurchaseAmount] MONEY NOT NULL,
     [OrderCount] INT NOT NULL, 
 	CONSTRAINT PK_FactMonthlyPurchaseOrders_LocationId_VendorId_MonthId PRIMARY KEY CLUSTERED ([LocationId],[VendorId],[MonthId]),
