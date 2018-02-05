@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Reporting"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{FA0B142C-F0CD-44FF-B590-391E789E77CC}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{E9D291F4-C04A-4E03-A9E2-54D73A79321C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -120,7 +120,7 @@
                     <connection
                       refId="Package\Dimension Tables\DimLocation\DimLocation Destination.Connections[OleDbConnection]"
                       connectionManagerID="{D975BEA8-FF35-4DB6-B172-3C44A2294352}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ReportingDB_M]"
+                      connectionManagerRefId="Project.ConnectionManagers[ReportingDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -237,7 +237,7 @@
                     <connection
                       refId="Package\Dimension Tables\DimLocation\DimLocation Source.Connections[OleDbConnection]"
                       connectionManagerID="{65FD546B-5455-42C0-813A-B3618EF489CE}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2016CTP3]"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -428,7 +428,7 @@
                     <connection
                       refId="Package\Dimension Tables\DimVendor\DimVendor Destination.Connections[OleDbConnection]"
                       connectionManagerID="{D975BEA8-FF35-4DB6-B172-3C44A2294352}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ReportingDB_M]"
+                      connectionManagerRefId="Project.ConnectionManagers[ReportingDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -545,7 +545,7 @@
                     <connection
                       refId="Package\Dimension Tables\DimVendor\DimVendor Source.Connections[OleDbConnection]"
                       connectionManagerID="{65FD546B-5455-42C0-813A-B3618EF489CE}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2016CTP3]"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -761,7 +761,7 @@
                     <connection
                       refId="Package\Fact Tables\FactMonthlyPurchaseOrders\FactMonthlyPurchaseOrders Destination.Connections[OleDbConnection]"
                       connectionManagerID="{D975BEA8-FF35-4DB6-B172-3C44A2294352}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[ReportingDB_M]"
+                      connectionManagerRefId="Project.ConnectionManagers[ReportingDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -882,7 +882,14 @@
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
   PI.LocationID,
   POH.VendorID,
-  CAST ( CAST(YEAR(OrderDate) AS VARCHAR(10)) + CAST(MONTH(OrderDate) AS VARCHAR(10) ) AS INT) AS MonthId,
+  CAST ( (cast((year(POH.OrderDate)) AS VARCHAR(4)) + 
+		( CASE
+			WHEN 
+				LEN(month(POH.OrderDate)) &lt; 2 THEN '0' + cast(month(POH.OrderDate) AS VARCHAR(2))
+			ELSE 
+				CAST(month(POH.OrderDate) AS VARCHAR(2))
+		  END )
+		)  AS INT ) AS MonthId    ,
   SUM(POD.UnitPrice * POD.OrderQty) AS Amount,
   COUNT(POD.PurchaseOrderDetailID) AS OrderCount
 FROM Purchasing.PurchaseOrderDetail POD
@@ -920,7 +927,7 @@ GROUP BY PI.LocationID,
                     <connection
                       refId="Package\Fact Tables\FactMonthlyPurchaseOrders\FactMonthlyPurchaseOrders Source.Connections[OleDbConnection]"
                       connectionManagerID="{65FD546B-5455-42C0-813A-B3618EF489CE}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2016CTP3]"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDb]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1185,7 +1192,7 @@ GROUP BY PI.LocationID,
     design-time-name="Package\Dimension Tables\DimLocation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="172,41.6"
           Id="Package\Dimension Tables\DimLocation\DimLocation Source"
@@ -1213,9 +1220,7 @@ GROUP BY PI.LocationID,
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

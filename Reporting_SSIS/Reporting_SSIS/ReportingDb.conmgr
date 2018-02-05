@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="ReportingDB_M"
+  DTS:ObjectName="ReportingDb"
   DTS:DTSID="{D975BEA8-FF35-4DB6-B172-3C44A2294352}"
   DTS:CreationName="OLEDB">
   <DTS:PropertyExpression
